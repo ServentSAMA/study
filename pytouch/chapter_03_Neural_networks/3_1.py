@@ -8,9 +8,12 @@ from d2l import torch as d2l
 '''
 在训练我们的模型时，我们经常希望能够同时处理整个小批量的样本
 为了实现这一点，需要我们对计算进行向量化，从而利用《线性代数库》
-''' 
+'''
+
+
 class Timer:  #@save
     """记录多次运行时间"""
+
     def __init__(self):
         self.times = []
         self.start()
@@ -44,7 +47,6 @@ b = torch.ones(n)
 # 新建一个1万值为0的tensor
 c = torch.zeros(n)
 
-
 timer = Timer()
 for i in range(n):
     c[i] = a[i] + b[i]
@@ -54,7 +56,6 @@ print(f'{timer.stop():.5f} sec')
 timer.start()
 d = a + b
 print(f'{timer.stop():.5f} sec')
-
 
 # 3.1.3 正态分布与平方损失
 '''
@@ -68,11 +69,12 @@ def normal(x, mu, sigma):
     :param sigma: 标准差
     """
     p = 1 / math.sqrt(2 * math.pi * sigma ** 2)
-    return p * np.exp(-0.5 / sigma**2 * (x - mu)**2)
+    return p * np.exp(-0.5 / sigma ** 2 * (x - mu) ** 2)
 
-x = np.arange(-7,7,0.01)
-params = [(0,1),(0,2),(3,1)]
-d2l.plot(x,[normal(x, mu ,sigma) for mu, sigma in params], xlabel='x',
-         ylabel='p(x)', figsize=(4.5,2.5),
+
+x = np.arange(-7, 7, 0.01)
+print(x)
+params = [(0, 1), (0, 2), (3, 1)]
+d2l.plot(x, [normal(x, mu, sigma) for mu, sigma in params], xlabel='x',
+         ylabel='p(x)', figsize=(4.5, 2.5),
          legend=[f'mean {mu}, std{sigma},' for mu, sigma in params])
-
