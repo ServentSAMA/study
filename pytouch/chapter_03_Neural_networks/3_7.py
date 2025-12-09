@@ -20,7 +20,24 @@ def init_weights(m):
 
 
 net.apply(init_weights)
+'''
+用于多分类任务的标准损失函数，它将 LogSoftmax 和 NLLLoss（负对数似然损失） 合并为一步，数值更稳定、使用更便捷。
 
+计算预测 logits（未归一化的分数）与真实标签之间的交叉熵损失，适用于单标签多分类问题（每个样本只属于一个类别）。
+torch.nn.CrossEntropyLoss(
+    weight=None,
+    size_average=None,
+    ignore_index=-100,
+    reduce=None,
+    reduction='mean',
+    label_smoothing=0.0
+)
+
+weight：手动指定每个类别的权重（形状 [C]），用于处理类别不平衡。
+reduction： 'none'：返回每个样本的损失
+            'mean'：返回 batch 平均损失
+            'sum'：返回 batch 总损失
+'''
 loss = nn.CrossEntropyLoss(reduction='none')
 
 trainer = torch.optim.SGD(net.parameters(), lr=0.1)

@@ -36,6 +36,14 @@ net[0].weight.data.normal_(0, 0.01)
 net[0].bias.data.fill_(0)
 
 # 定义损失函数
+'''
+用于计算 均方误差（Mean Squared Error, MSE） 的损失函数，广泛应用于回归任务中，衡量模型预测值与真实目标值之间的平均平方偏差。
+
+torch.nn.MSELoss(size_average=None, reduce=None, reduction='mean')
+    reduction：'none'：不聚合，返回每个元素的损失
+                'mean'：返回所有元素的平均值
+                'sum'：返回所有元素的总和
+'''
 loss = nn.MSELoss()
 
 # 定义优化算法
