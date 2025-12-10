@@ -29,3 +29,11 @@ b = torch.arange(2).reshape(1, 2) + 1
 print(a+b)
 
 
+A = torch.tensor([[1, 2],
+                  [3, 4]])    # shape: (2, 2)
+B = torch.tensor([[5, 6],
+                  [7, 8]])    # shape: (2, 2)
+
+C = torch.matmul(A, B)
+print(C)
+

@@ -118,6 +118,11 @@ def get_k_fold_data(k, i, X, y):
         elif X_train is None:
             X_train, y_train = X_part, y_part
         else:
+            '''
+                torch.cat(tensors, dim=0, *, out=None)：用于沿指定维度拼接（concatenate）多个张量的核心函数。
+                    tensors：要拼接的张量序列（至少两个）
+                    dim：拼接的维度
+            '''
             X_train = torch.cat([X_train, X_part], 0)
             y_train = torch.cat([y_train, y_part], 0)
     return X_train, y_train, X_valid, y_valid

@@ -16,6 +16,13 @@ net = nn.Sequential(nn.Flatten(), nn.Linear(784, 10))
 
 def init_weights(m):
     if type(m) == nn.Linear:
+        '''
+            用于以正态分布（高斯分布）初始化张量的原位（in-place）函数，常用于神经网络权重的初始化。
+            torch.nn.init.normal_(tensor, mean=0.0, std=1.0)
+                tensor：要初始化的张量（会被原地修改）
+                mean：正态分布的均值（μ）
+                std：正态分布的标准差（σ）
+        '''
         nn.init.normal_(m.weight, std=0.01)
 
 

@@ -22,6 +22,19 @@ def synthetic_data(w, b, num_examples):
     # 均值为0(第一个参数)，方差为1(第二个参数)的随机数，第三个参数为大小
     X = torch.normal(0, 1, (num_examples, len(w)))
     # 对X和w求矩阵积，加上偏差b
+    '''
+        用于执行张量矩阵乘法（matrix multiplication） 的核心函数，支持从向量、矩阵到高维张量的广泛广播和批量运算。
+        它是深度学习中最常用的线性代数操作之一。
+        输入维度	行为
+        1D × 1D	点积（内积） → 标量
+        2D × 2D	标准矩阵乘法 → 矩阵
+        1D × 2D	向量左乘矩阵（自动升维）→ 向量
+        2D × 1D	矩阵右乘向量 → 向量
+        ≥3D	    批量矩阵乘法（Batched Matrix Multiplication）
+        ✅ 支持广播机制（broadcasting），适用于批量处理（如 (B, M, N) × (B, N, K) → (B, M, K)）。
+        
+        
+    '''
     y = torch.matmul(X, w) + b
     # 相当于上边的公式
     y += torch.normal(0, 0.01, y.shape)
