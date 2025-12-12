@@ -68,6 +68,39 @@ Y = corr2d(X, K)
 6.2.4. 学习卷积核
 '''
 # 构造一个二维卷积层，它包含一个输出通道和形状为(1, 2)的卷积核
+'''
+nn.Conv2d 是 PyTorch 中用于实现二维卷积操作的核心模块，广泛应用于图像处理、计算机视觉任务（如分类、检测、分割）中的特征提取。
+对输入的四维张量（通常是图像）执行 2D 卷积（实际是互相关），通过可学习的卷积核（滤波器）提取局部空间特征。
+    ✅ 输入形状：(N, C_in, H_in, W_in)
+    ✅ 输出形状：(N, C_out, H_out, W_out)
+    参数：
+        N：batch size
+        C_in / C_out：输入/输出通道数
+        H, W：高度和宽度
+torch.nn.Conv2d(
+    in_channels,
+    out_channels,
+    kernel_size,
+    stride=1,
+    padding=0,
+    dilation=1,
+    groups=1,
+    bias=True,
+    padding_mode='zeros',
+    device=None,
+    dtype=None
+)
+参数	            类型	                必需	默认值	说明
+in_channels	    int	                ✅	—	    输入通道数（如 RGB 图像为 3）
+out_channels	int	                ✅	—	    输出通道数（即卷积核个数）
+kernel_size	    int or tuple	    ✅	—	    卷积核大小，如 3 或 (3, 5)
+stride	        int or tuple	    ❌	1	    卷积步长
+padding	        int or tuple or str	❌	0	    边界填充像素数（支持 'same', 'valid'）
+dilation	    int or tuple	    ❌	1	    空洞卷积膨胀率
+groups	        int	                ❌	1	    分组卷积（groups=in_channels → 深度可分离卷积）
+bias	        bool                ❌	True	是否添加可学习偏置项
+padding_mode	str	                ❌	'zeros'	填充模式：'zeros', 'reflect', 'replicate', 'circular'
+'''
 conv2d = nn.Conv2d(1, 1, kernel_size=(1, 2), bias=False)
 
 X = X.reshape((1, 1, 6, 8))

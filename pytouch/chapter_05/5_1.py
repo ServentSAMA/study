@@ -50,6 +50,10 @@ class MySequential(nn.Module):
 # net = MySequential(nn.Linear(20, 256), nn.ReLU(), nn.Linear(256, 10))
 # net(X)
 
+'''
+在这个FixedHiddenMLP模型中，我们实现了一个隐藏层， 其权重（self.rand_weight）在实例化时被随机初始化，之后为常量。 
+这个权重不是一个模型参数，因此它永远不会被反向传播更新。 然后，神经网络将这个固定层的输出通过一个全连接层。
+'''
 # 在前向传播函数中执行代码
 class FixedHiddenMLP(nn.Module):
     def __init__(self):
