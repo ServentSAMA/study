@@ -1,5 +1,5 @@
 """
-图像卷积
+6.2 图像卷积
 """
 import torch
 from torch import nn

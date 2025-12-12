@@ -50,6 +50,16 @@ def eveluate_accuracy_gpu(net, data_iter, device=None):
 def train_ch6(net, train_iter, test_iter, num_epochs, lr, device):
     def init_weights(m):
         if type(m) == nn.Linear or type(m) == nn.Conv2d:
+            '''
+            nn.init.xavier_uniform_() 是 PyTorch 中实现 Xavier（Glorot）均匀分布初始化的原位（in-place）函数，
+            用于合理地初始化神经网络权重，以缓解梯度消失/爆炸问题，加速训练收敛。
+            特别适用于使用 Sigmoid、Tanh 等饱和激活函数 的网络。
+            函数签名：
+                torch.nn.init.xavier_uniform_(tensor, gain=1.0)
+            参数说明：
+                tensor：要初始化的权重张量（会被原地修改）
+                gain：额外缩放因子，用于适配不同激活函数
+            '''
             nn.init.xavier_uniform_(m.weight)
 
     net.apply(init_weights)
