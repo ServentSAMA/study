@@ -6,6 +6,7 @@ from d2l import torch as d2l
 
 d2l.use_svg_display()
 
+
 # 通过Totensor实例将图像数据从PIL类型变换成32位浮点数形式
 # 并除以255使得所有像素的数值均为0-1
 trans = transforms.ToTensor()
@@ -15,17 +16,17 @@ mnist_train = torchvision.datasets.FashionMNIST(
 mnist_test = torchvision.datasets.FashionMNIST(
     root="..\..\data", train=False, transform=trans, download=True)
 
-print(len(mnist_train), len(mnist_test))
+
+print(len(mnist_train),len(mnist_test))
+
 
 print(mnist_train[0][0].shape)
-
 
 def get_fashion_mnist_labels(labels):  #@save
     """返回Fashion-MNIST数据集的文本标签"""
     text_labels = ['t-shirt', 'trouser', 'pullover', 'dress', 'coat',
                    'sandal', 'shirt', 'sneaker', 'bag', 'ankle boot']
     return [text_labels[int(i)] for i in labels]
-
 
 def show_images(imgs, num_rows, num_cols, titles=None, scale=1.5):  #@save
     """绘制图像列表"""
@@ -45,7 +46,6 @@ def show_images(imgs, num_rows, num_cols, titles=None, scale=1.5):  #@save
             ax.set_title(titles[i])
     return axes
 
-
 X, y = next(iter(data.DataLoader(mnist_train, batch_size=18)))
 show_images(X.reshape(18, 28, 28), 2, 9, titles=get_fashion_mnist_labels(y));
 print(X)
@@ -56,10 +56,11 @@ workers = 8
 
 if __name__ == '__main__':
 
-    train_iter = data.DataLoader(mnist_train, batch_size, shuffle=True, num_workers=workers)
+    train_iter = data.DataLoader(mnist_train, batch_size, shuffle=True,num_workers=workers)
 
     timer = d2l.Timer()
 
     for X, y in train_iter:
         continue
     print(f'{timer.stop():.2f} sec')
+

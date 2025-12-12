@@ -9,7 +9,7 @@ from d2l import torch as d2l
 net = nn.Sequential(nn.Flatten(), nn.Linear(784, 256), 
                     nn.Flatten(), nn.Linear(256, 128), 
                     nn.ReLU(), nn.Linear(128, 10))
-# 初始化权重
+
 def init_weights(m):
     if type(m) == nn.Linear:
         nn.init.normal_(m.weight, std=0.01)
