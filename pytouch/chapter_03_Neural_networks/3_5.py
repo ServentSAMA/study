@@ -10,10 +10,10 @@ d2l.use_svg_display()
 # 并除以255使得所有像素的数值均为0-1
 trans = transforms.ToTensor()
 mnist_train = torchvision.datasets.FashionMNIST(
-    root="..\..\data", train=True, transform=trans, download=True)
+    root="..\data", train=True, transform=trans, download=True)
 
 mnist_test = torchvision.datasets.FashionMNIST(
-    root="..\..\data", train=False, transform=trans, download=True)
+    root="..\data", train=False, transform=trans, download=True)
 
 print(len(mnist_train), len(mnist_test))
 

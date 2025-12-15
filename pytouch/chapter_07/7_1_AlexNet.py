@@ -40,6 +40,21 @@ batch_size = 128
 train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size, resize=224)
 
 lr, num_epochs = 0.01, 10
+'''
+默认学习率0.01，训练次数为10
+loss 0.334, train acc 0.878, test acc 0.882
+3317.6 examples/sec on cuda:0
+'''
+'''
+默认学习率0.01，训练次数为15
+loss 0.277, train acc 0.897, test acc 0.891
+3324.7 examples/sec on cuda:0
+'''
+'''
+默认学习率0.01，训练次数为20
+loss 0.246, train acc 0.910, test acc 0.906
+3319.4 examples/sec on cuda:0
+'''
 # python控制台运行
 # d2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
 

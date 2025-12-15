@@ -28,6 +28,7 @@ print(x.grad)
 # 当y不是标量时，向量y关于向量x的导数的最自然解释是一个矩阵。 对于高阶和高维的y和x，求导的结果可以是一个高阶张量。
 # 对非标量调用backward需要传入一个gradient参数，该参数指定微分函数关于self的梯度。
 # 本例只想求偏导数的和，所以传递一个1的梯度是合适的
+print("2.5.2 非标量变量的反向传播")
 x.grad.zero_()
 y = x * x
 # 等价于y.backward(torch.ones(len(x)))
@@ -35,7 +36,15 @@ y.sum().backward()
 print(x.grad)
 
 # 2.5.3 分离计算
+print("2.5.3 分离计算")
+x.grad.zero_()
+print(x)
+y = x * x
+u = y.detach()
+z = u * x
 
+z.sum().backward()
+print(x.grad == u)
 
 
 
