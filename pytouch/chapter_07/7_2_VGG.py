@@ -34,15 +34,15 @@ net = vgg(conv_arch)
 X = torch.randn(size=(1, 1, 224, 224))
 for blk in net:
     if isinstance(blk, nn.Sequential):
-        print(blk.__class__.__name__)
+        # print(blk.__class__.__name__)
         for model in blk:
             X = model(X)
             if model.__class__.__name__ in ["Conv2d", "Linear"]:
-                # print(model.__class__.__name__, 'output shape:\t', X.shape)
+                print(model.__class__.__name__, 'output shape:\t', X.shape)
                 pass
     else:
         X = blk(X)
-        # print(blk.__class__.__name__, 'output shape:\t', X.shape)
+        print(blk.__class__.__name__, 'output shape:\t', X.shape)
 
 ratio = 4
 small_conv_arch = [(pair[0], pair[1] // ratio) for pair in conv_arch]
