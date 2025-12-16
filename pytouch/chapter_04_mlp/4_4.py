@@ -22,8 +22,10 @@ size: 输出的数组形状。
 '''
 features = np.random.normal(size=(n_train + n_test, 1))
 
-# 就地打乱（in-place shuffle）数组元素顺序的函数
-# 对输入的一维或多维数组沿第一个轴（axis=0）随机打乱行的顺序，不改变数组形状，仅改变元素排列。
+'''
+random.shuffle是就地打乱（in-place shuffle）数组元素顺序的函数
+对输入的一维或多维数组沿第一个轴（axis=0）随机打乱行的顺序，不改变数组形状，仅改变元素排列。
+'''
 np.random.shuffle(features)
 
 '''

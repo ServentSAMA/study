@@ -1,7 +1,12 @@
+"""
+5.5. 读写文件
+"""
 import torch
 from torch import nn
 from torch.nn import functional as F
-
+'''
+5.5.1. 加载和保存张量
+'''
 # 保存张量
 x = torch.arange(4)
 torch.save(x, 'x-file')
@@ -20,7 +25,9 @@ mydict = {'x': x, 'y': y}
 torch.save(mydict, 'mydict')
 mydict2 = torch.load('mydict')
 print(mydict2)
-
+'''
+5.5.2. 加载和保存模型参数
+'''
 class MLP(nn.Module):
     def __init__(self):
         super().__init__()
