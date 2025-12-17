@@ -2,3 +2,4 @@ pytorch-official/
 data/
 .idea/
 runs
+**/datasets
