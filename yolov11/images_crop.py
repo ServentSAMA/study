@@ -6,8 +6,8 @@ import numpy as np
 IMG_WIDTH = 2678
 IMG_HEIGHT = 1786
 OUTPUT_SIZE = 640
-INPUT_IMAGE_DIR = "datasets\\lock\\images\\val"          # 原始图像目录
-INPUT_LABEL_DIR = "datasets\\lock\\labels\\val"          # 原始标签目录
+INPUT_IMAGE_DIR = "datasets\\lock\\images"          # 原始图像目录
+INPUT_LABEL_DIR = "datasets\\lock\\labels"          # 原始标签目录
 OUTPUT_IMAGE_DIR = "output\\images\\val"
 OUTPUT_LABEL_DIR = "output\\labels\\val"
 

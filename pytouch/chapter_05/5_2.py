@@ -1,5 +1,5 @@
 """
-5.2 章节参数管理
+5.2 参数管理
 """
 import torch
 from torch import nn

@@ -1,3 +1,6 @@
+"""
+5.3. 延后初始化
+"""
 import torch
 from torch import nn
 '''

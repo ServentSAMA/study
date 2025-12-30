@@ -1,3 +1,6 @@
+"""
+5.1. 层和块
+"""
 import torch
 
 from torch import nn
