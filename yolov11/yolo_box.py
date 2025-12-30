@@ -7,13 +7,13 @@ from PIL import Image
 # model = YOLO("yolo11n.yaml")
 
 # Load a pretrained YOLO model (recommended for training)
-model = YOLO("yolo11n.pt")
+model = YOLO("box.pt")
 
 # Train the model using the 'coco8.yaml' dataset for 3 epochs
-model.train(data="lock.yml", epochs=50)
+# model.train(data="lock.yml", epochs=50)
 
-im1 = Image.open("D:\\工作资料\\箱锁识别\\数据集\\2025-12-03_16-19-40.mp4_20251219_125817.443.jpg")
+im1 = Image.open("D:\\工作资料\\箱锁识别\\数据集\\2025-10-29_16-16-06.mp4_20251230_101650.699.jpg")
 
-results = model.predict(source=im1, save=True, conf=0.01)
+results = model.predict(source="D:\\RecordFile\\2025-11-18\\2025-11-19_15-22-11.mp4", show=True)
 
-success = model.export()
+# success = model.export()
